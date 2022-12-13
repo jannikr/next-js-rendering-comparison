@@ -1,0 +1,27 @@
+name: My NextJs Test
+author: Jan Rückert
+version: 1
+architecture: linux
+
+services:
+  next-node-container:
+    image: nextjsapp
+    ports:
+      - 3000:3000
+    networks:
+      - nextjs-node-network
+  curl-container:
+    image: curlimages/curl
+    networks:
+      - nextjs-node-network
+    cmd: sh
+flow:
+  - name: Check Website
+    container: curl-container
+    commands:
+      - type: console
+        command: curl -s next-node-container
+        note: Starting curl
+
+networks:
+  nextjs-node-network:
