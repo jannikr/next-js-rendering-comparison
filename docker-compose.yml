@@ -1,0 +1,12 @@
+version: "3"
+services:
+  next-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: nextjsapp
+    container_name: next-node-container
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
