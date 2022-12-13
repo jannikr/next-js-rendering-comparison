@@ -1,0 +1,18 @@
+## STAGE ONE ##
+
+# Based on node server version 15
+FROM node:15 as build
+# Working directory
+WORKDIR '/app'
+# Copy project dependencies into WORKDIR
+COPY package.json .
+# Install packages
+RUN npm install
+# Copy the rest of the code
+COPY . .
+# Build project for production
+RUN npm run build
+# Expose Port 3000
+Expose 3000
+# Run sever
+CMD ["npm", "start"]
