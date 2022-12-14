@@ -19,7 +19,7 @@ export default function ClientSite() {
         return <p>No List to show</p>
     }
     return (
-        <div>This is a static page
+        <div>This is a client rendered page
             {people.data.map((user) => (
                 <li key={user.id}>{user.email}</li>
             ))}

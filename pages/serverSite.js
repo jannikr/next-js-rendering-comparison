@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ServerSite(props) {
     return (
-        <div>This is a static page
+        <div>This is a server rendered page
             {props.users.map((user) => (
                 <li key={user.id}>{user.email}</li>
             ))}
